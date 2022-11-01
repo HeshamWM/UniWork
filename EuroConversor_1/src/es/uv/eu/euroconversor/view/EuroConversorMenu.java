@@ -10,7 +10,30 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-/**
- *
- * @author EU (2016)
+ /*
+ * @author hesham
  */
+
+public class EuroConversorMenu extends JMenuBar {
+
+    private JMenu Calculadora;
+    private JMenuItem changeRate, salir;
+    
+    public EuroConversorMenu() {
+        Calculadora = new JMenu("Calculadora");
+        changeRate = new JMenuItem("Change Rate");
+        salir = new JMenuItem("Salir");
+        
+        changeRate.setActionCommand("change rate");
+        salir.setActionCommand("salir");
+        
+        Calculadora.add(changeRate);
+        Calculadora.add(salir);
+        this.add(Calculadora);
+    }
+
+    public void setActionListener(ActionListener actionListener){
+        changeRate.addActionListener(actionListener);
+        salir.addActionListener(actionListener);
+    }
+}
