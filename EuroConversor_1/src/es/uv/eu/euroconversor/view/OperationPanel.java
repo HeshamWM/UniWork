@@ -28,8 +28,14 @@ public class OperationPanel extends JPanel{
         convert = new JButton("Convert");
         
         convert.setForeground(Color.BLUE);
-        
+        convert.setFont(new Font(Font.SANS_SERIF, Font.PLAIN,  18));
+        convert.setMargin(new Insets(3,5,3,5));
+
+        this.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 15));
         setLayout(new BoxLayout(this ,BoxLayout.Y_AXIS));
+        
+        dolarToEuro.setFont(new Font(Font.SANS_SERIF, Font.PLAIN,  17));
+        euroToDolar.setFont(new Font(Font.SANS_SERIF, Font.PLAIN,  17));
         
         dolarToEuro.setAlignmentX(CENTER_ALIGNMENT);
         euroToDolar.setAlignmentX(CENTER_ALIGNMENT);

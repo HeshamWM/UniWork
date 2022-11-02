@@ -30,6 +30,7 @@ public class NumberPanel extends JPanel{
         btnC = new JButton("C");
         
         setLayout(new GridLayout(3,4));
+        this.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
         
         this.add(btn0);
         this.add(btn1);
