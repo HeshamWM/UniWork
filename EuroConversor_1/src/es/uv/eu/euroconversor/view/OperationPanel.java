@@ -45,12 +45,12 @@ public class OperationPanel extends JPanel{
         add(euroToDolar);
         add(convert);
     }
-    
+    /*
     public static void main(String[] args) {
         JFrame f = new JFrame("Operational Panel");
         f.add(new OperationPanel());
         f.setSize(200, 300);
         f.setVisible(true);
     }
-    
+    */
 }

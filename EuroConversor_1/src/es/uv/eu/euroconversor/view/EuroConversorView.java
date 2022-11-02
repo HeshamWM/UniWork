@@ -37,11 +37,12 @@ public class EuroConversorView extends JFrame{
         this.add(operationPane, BorderLayout.EAST);
         this.add(clear, BorderLayout.SOUTH);
     }
+    
     public static void main(String[] args) {
         EuroConversorView f = new EuroConversorView();
         f.setSize(400, 400);
         f.setVisible(true);
-    }
+    }   
 }
     
 

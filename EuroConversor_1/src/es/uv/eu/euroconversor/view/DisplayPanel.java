@@ -38,10 +38,12 @@ public class DisplayPanel extends JPanel{
         add(tasaCambio, BorderLayout.SOUTH);
         add(number,BorderLayout.EAST);
     }
+    /*
     public static void main(String[] args) {
         JFrame f = new JFrame("Operational Panel");
         f.add(new DisplayPanel());
         f.setSize(600, 300);
         f.setVisible(true);
     }
+    */
 }
