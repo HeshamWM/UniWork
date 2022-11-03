@@ -32,6 +32,19 @@ public class NumberPanel extends JPanel{
         setLayout(new GridLayout(3,4));
         this.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
         
+        btn0.setActionCommand("0");
+        btn1.setActionCommand("1");
+        btn2.setActionCommand("2");
+        btn3.setActionCommand("3");
+        btn4.setActionCommand("4");
+        btn5.setActionCommand("5");
+        btn6.setActionCommand("6");
+        btn7.setActionCommand("7");
+        btn8.setActionCommand("8");
+        btn9.setActionCommand("9");
+        btnC.setActionCommand("C");
+        btnDot.setActionCommand(".");
+        
         this.add(btn0);
         this.add(btn1);
         this.add(btn2);
@@ -44,7 +57,7 @@ public class NumberPanel extends JPanel{
         this.add(btn9);
         this.add(btnDot);
         this.add(btnC);
-    }
+    }   
     /*
     public static void main(String[] args) {
         JFrame f = new JFrame("Buttons");

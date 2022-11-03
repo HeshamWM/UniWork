@@ -21,8 +21,9 @@ public class EuroConversor {
     public static void main(String[] args) {
         EuroConversorModel model = new EuroConversorModel();
         EuroConversorView view = new EuroConversorView();
-        //EuroConversorController controller = new EuroConversorController(model, view);
-
+        EuroConversorController controller = new EuroConversorController(model, view);
+        
+        view.setSize(400, 400);
         view.setVisible(true);
     }
     

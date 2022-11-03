@@ -38,6 +38,28 @@ public class EuroConversorView extends JFrame{
         this.add(clear, BorderLayout.SOUTH);
     }
     
+    public void setActionListener(ActionListener actionListener){
+        clear.clear.addActionListener(actionListener);
+        
+        numberPane.btn0.addActionListener(actionListener);
+        numberPane.btn1.addActionListener(actionListener);
+        numberPane.btn2.addActionListener(actionListener);
+        numberPane.btn3.addActionListener(actionListener);
+        numberPane.btn4.addActionListener(actionListener);
+        numberPane.btn5.addActionListener(actionListener);
+        numberPane.btn6.addActionListener(actionListener);
+        numberPane.btn7.addActionListener(actionListener);
+        numberPane.btn8.addActionListener(actionListener);
+        numberPane.btn9.addActionListener(actionListener);
+        numberPane.btnC.addActionListener(actionListener);
+        numberPane.btnDot.addActionListener(actionListener);
+        
+        operationPane.convert.addActionListener(actionListener);
+        
+        menu.changeRate.addActionListener(actionListener);
+        menu.salir.addActionListener(actionListener);
+    }
+    
     public static void main(String[] args) {
         EuroConversorView f = new EuroConversorView();
         f.setSize(400, 400);

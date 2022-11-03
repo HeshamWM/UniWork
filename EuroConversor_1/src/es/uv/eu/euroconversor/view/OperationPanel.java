@@ -41,10 +41,17 @@ public class OperationPanel extends JPanel{
         euroToDolar.setAlignmentX(CENTER_ALIGNMENT);
         convert.setAlignmentX(CENTER_ALIGNMENT);
         
+        convert.setActionCommand("convert");
+        
         add(dolarToEuro);
         add(euroToDolar);
         add(convert);
     }
+    
+    public void setActionListener(ActionListener actionListener){
+        convert.addActionListener(actionListener);
+    }
+    
     /*
     public static void main(String[] args) {
         JFrame f = new JFrame("Operational Panel");
