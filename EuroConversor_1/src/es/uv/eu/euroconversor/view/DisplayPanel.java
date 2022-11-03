@@ -17,17 +17,11 @@ import javax.swing.SwingConstants;
  */
 
 public class DisplayPanel extends JPanel{
-    private JLabel tasaCambio,number;
-    private int tasa;
-    
-    public void setTasa (int tasa) {this.tasa = tasa;}
-    
-    public int getTasa () {return tasa;}
+    public JLabel tasaCambio,number;
     
     public DisplayPanel(){
         setLayout(new BorderLayout());
-        
-        tasaCambio = new JLabel("Exchange rate: " + Integer.toString(tasa));
+        tasaCambio = new JLabel("Exchange rate: 1");
         number = new JLabel("0");
         
         this.setBorder(BorderFactory.createLineBorder(Color.black, 10, false));

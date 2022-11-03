@@ -7,6 +7,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 
@@ -15,9 +16,22 @@ import javax.swing.JRadioButton;
  */
 
 public class OperationPanel extends JPanel{
-    JRadioButton dolarToEuro, euroToDolar;
-    ButtonGroup radio;
+    private JRadioButton dolarToEuro, euroToDolar;
+    private ButtonGroup radio;
     JButton convert;
+    
+    public int getConvertOption(){
+        if (dolarToEuro.isSelected()){
+            return 1;
+        }
+        else if (euroToDolar.isSelected()){
+            return 2;
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Please choose a conversion option","Error",2);
+            return 0;
+        }
+    }
     
     public OperationPanel(){
         dolarToEuro = new JRadioButton("Dolar-Euro");
@@ -46,10 +60,6 @@ public class OperationPanel extends JPanel{
         add(dolarToEuro);
         add(euroToDolar);
         add(convert);
-    }
-    
-    public void setActionListener(ActionListener actionListener){
-        convert.addActionListener(actionListener);
     }
     
     /*

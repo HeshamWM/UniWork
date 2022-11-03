@@ -45,49 +45,40 @@ public class EuroConversorController {
                     System.exit(0);
                     break;
                 case "0":
-                    System.out.println("Number 0 pressed");                   
-                    break;
                 case "1":
-                    System.out.println("Number 1 pressed");                   
-                    break;
                 case "2":
-                    System.out.println("Number 2 pressed");                   
-                    break;
                 case "3":
-                    System.out.println("Number 3 pressed");                   
-                    break;
                 case "4":
-                    System.out.println("Number 4 pressed");                   
-                    break;
                 case "5":
-                    System.out.println("Number 5 pressed");                   
-                    break;
                 case "6":
-                    System.out.println("Number 6 pressed");                   
-                    break;
                 case "7":
-                    System.out.println("Number 7 pressed");                   
-                    break;
                 case "8":
-                    System.out.println("Number 8 pressed");                   
-                    break;
                 case "9":
-                    System.out.println("Number 9 pressed");                   
-                    break;
                 case "C":
-                    System.out.println("C pressed");                   
-                    break;
                 case ".":
-                    System.out.println("dot pressed");                   
+                    view.getDisplay().number.setText(model.addDigit(command));
                     break;
-                case "change rate":
-                    System.out.println("change rate pressed");                   
+                case "change rate": 
+                    String newRate = JOptionPane.showInputDialog(null,"Enter new exchange rate: ");
+                    model.setExchangeRate(Float.parseFloat(newRate));
+                    view.getDisplay().tasaCambio.setText("Exchange rate: " + model.getExchangeRate());
                     break;
                 case "clear":
-                    System.out.println("clear pressed");                   
+                    view.getDisplay().number.setText(model.reset());              
                     break;
                 case "convert":
-                    System.out.println("convert pressed");                   
+                    switch (view.getOperation().getConvertOption()) {
+                        case 1:
+                            String message = "The value of " + view.getDisplay().number.getText() + "$ is equal to " + model.convertmult() + "€";
+                            JOptionPane.showMessageDialog(null,message,"Conversion Result",1);
+                            break;
+                        case 2:
+                            message = "The value of " + view.getDisplay().number.getText() + "€ is equal to " + model.convertdiv()+ "$";
+                            JOptionPane.showMessageDialog(null,message,"Conversion Result",1);
+                            break;
+                        default:
+                            break;
+                    }                 
                     break;
                 default:
                     System.out.println(" EuroConversorController : Comando ’" + command + "’ no reconocido.");

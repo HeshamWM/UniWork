@@ -23,6 +23,8 @@ public class EuroConversor {
         EuroConversorView view = new EuroConversorView();
         EuroConversorController controller = new EuroConversorController(model, view);
         
+        view.getDisplay().tasaCambio.setText("Exchange rate :" + model.getExchangeRate());
+        
         view.setSize(400, 400);
         view.setVisible(true);
     }

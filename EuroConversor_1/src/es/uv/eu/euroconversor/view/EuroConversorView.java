@@ -19,6 +19,9 @@ public class EuroConversorView extends JFrame{
     private OperationPanel operationPane;
     private ClearPanel clear;
     
+    public DisplayPanel getDisplay(){return display;}
+    public OperationPanel getOperation(){return operationPane;}
+    
     public EuroConversorView(){
         this.setLayout(new BorderLayout());
         
@@ -59,12 +62,13 @@ public class EuroConversorView extends JFrame{
         menu.changeRate.addActionListener(actionListener);
         menu.salir.addActionListener(actionListener);
     }
-    
+    /*
     public static void main(String[] args) {
         EuroConversorView f = new EuroConversorView();
         f.setSize(400, 400);
         f.setVisible(true);
-    }   
+    } 
+    */
 }
     
 
