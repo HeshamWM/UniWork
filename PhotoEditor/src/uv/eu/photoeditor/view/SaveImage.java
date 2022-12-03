@@ -1,4 +1,4 @@
-package es.uv.eu.photoeditor.view;
+package uv.eu.photoeditor.view;
 
 import java.io.File;
 import javax.swing.JFileChooser;
