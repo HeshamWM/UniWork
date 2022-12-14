@@ -5,6 +5,7 @@
 package uv.eu.photoeditor.view;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import uv.eu.photoeditor.model.PhotoEditorModel;
 
@@ -18,14 +19,17 @@ public class PhotoEditorView extends JFrame{
     private SelectPanel select;
     private ImagenPanel image;
     private StatusPanel status; 
+    private static PhotoEditorModel model;
     
-    public PhotoEditorView(){
+    public PhotoEditorView(PhotoEditorModel model){
+        this.model = model;
+        
         setLayout(new BorderLayout());
         
         menu = new PhotoEditorMenuBar();
         top = new WidthPanel();
         select = new SelectPanel();
-        image = new ImagenPanel();
+        image = new ImagenPanel(model);
         status = new StatusPanel();
         
         this.setJMenuBar(menu);
@@ -36,10 +40,9 @@ public class PhotoEditorView extends JFrame{
         add(status, BorderLayout.SOUTH);
         
         this.setSize(900,900);
+        this.setVisible(true);
     }
-    
-    public static void main(String[] args) {
-        PhotoEditorView view = new PhotoEditorView();
-        view.setVisible(true);
+    public void setActionListener(ActionListener listener){
+        
     }
 }

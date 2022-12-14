@@ -5,16 +5,28 @@
 package uv.eu.photoeditor.view;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
+import uv.eu.photoeditor.model.PhotoEditorModel;
 
 /**
  *
  * @author hesham
  */
 public class ImagenPanel extends JPanel{
-    public ImagenPanel(){
-        this.setBackground(Color.lightGray);
+    
+    private BufferedImage image;
+    
+    @Override
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        g.drawImage(image, 2, 2, this);
+    }
+    
+    public ImagenPanel(PhotoEditorModel model){
+        image = model.getImagen();
         this.setBorder(BorderFactory.createLineBorder(Color.black,2));
     }
 }

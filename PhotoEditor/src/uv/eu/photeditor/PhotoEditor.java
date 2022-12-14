@@ -1,8 +1,8 @@
-package es.uv.eu.photeditor;
+package uv.eu.photeditor;
 
-import es.uv.eu.photoeditor.controller.PhotoEditorController;
-import es.uv.eu.photoeditor.model.PhotoEditorModel;
-import es.uv.eu.photoeditor.view.PhotoEditorView;
+import uv.eu.photoeditor.controller.PhotoEditorController;
+import uv.eu.photoeditor.model.PhotoEditorModel;
+import uv.eu.photoeditor.view.PhotoEditorView;
 
 /**
  *

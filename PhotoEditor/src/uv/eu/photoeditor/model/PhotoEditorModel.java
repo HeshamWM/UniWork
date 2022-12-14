@@ -1,4 +1,4 @@
-package es.uv.eu.photoeditor.model;
+package uv.eu.photoeditor.model;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -20,7 +20,7 @@ public class PhotoEditorModel {
 
     public PhotoEditorModel() {
         try {
-            imagenFileName = "imagenes/imagen_00.jpg";
+            imagenFileName = "/Users/hesham/Dropbox/UNI/L3/EtornosU/UniWork/PhotoEditor/src/uv/eu/photoeditor/view/perro.jpg";
             imagen = ImageIO.read(new File(imagenFileName));
         }
         catch (IOException e) {
