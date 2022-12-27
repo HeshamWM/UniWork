@@ -16,8 +16,8 @@ import javax.swing.JMenuItem;
 
 public class EuroConversorMenu extends JMenuBar {
 
-    JMenu Calculadora;
-    JMenuItem changeRate, salir;
+    private JMenu Calculadora;
+    private JMenuItem changeRate, salir;
     
     public EuroConversorMenu() {
         Calculadora = new JMenu("Calculadora");

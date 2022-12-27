@@ -6,7 +6,7 @@ package es.uv.eu.euroconversor.model;
  */
 public final class EuroConversorModel {
   
-    private float exchangeRate = (float) 1.03;
+    private float exchangeRate = (float) 1.11253;
     private String numero,trans="mult";
     private boolean nuevoNumero;
     

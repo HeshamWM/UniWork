@@ -1,6 +1,8 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
 public class WordModel {
     private String word;
@@ -8,6 +10,11 @@ public class WordModel {
     private int nOfAttempts;
     private ArrayList<String> topPlayersName;
     private ArrayList<Integer> topPlayersNAttempts;
+
+    public WordModel(){
+        topPlayersName = new ArrayList<>(); // Arrays.asList("a","b","c","d","e")
+        topPlayersNAttempts = new ArrayList<>(); // Arrays.asList(1,2,3,4,5)
+    }
 
     //Setters and getters methods
     public void setWord(String word){ this.word = word; }
@@ -19,17 +26,27 @@ public class WordModel {
     public void setNOfAttempts(int nOfAttempts) { this.nOfAttempts = nOfAttempts;}
     public int getNOfAttempts() {return nOfAttempts;}
 
-    public void addPlayer(String playerName, int nOfAttempts){
-        int index = 11;
-        if (topPlayersNAttempts.size() < 10){
-            for (int i=0; i < 10; i++){
-                if (nOfAttempts < topPlayersNAttempts.get(i)){
-                    index = i;
-                    break;
-                }
+    public int checkRanking(int nOfAttempts){
+        int index = 10;
+        for (int i=0; i <= topPlayersName.size(); i++){
+            if (nOfAttempts < topPlayersNAttempts.get(i)){
+                index = i;
+                break;
             }
-            topPlayersName.add(index, playerName);
-            topPlayersNAttempts.add(index, nOfAttempts);
         }
+        return index;
     }
+
+    public void addPlayer(String playerName, int nOfAttempts){
+        topPlayersName.add(playerName);
+        topPlayersNAttempts.add(nOfAttempts);
+    }
+
+    public static void main(String[] args) {
+        WordModel model = new WordModel();
+        System.out.println("Current ranking: " + model.topPlayersName);
+        model.addPlayer("Hesham", 2);
+        System.out.println("New ranking: " + model.topPlayersName);
+    }
+
 }
