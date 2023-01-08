@@ -26,7 +26,6 @@ public class WordGuessController {
             String command = e.getActionCommand();
             switch (command){
                 case "start":
-                    System.out.println("Command start");
                     int length = Integer.parseInt(String.valueOf(view.startPanel.wordLength.getSelectedItem()));
                     int attempts = Integer.parseInt(String.valueOf(view.startPanel.nOfAttemptsInput.getSelectedItem()));
                     String word = view.startPanel.wordInput.getText();
@@ -40,16 +39,21 @@ public class WordGuessController {
                     }
                     break;
                 case "check":
-                    if(view.gamePanel.guessDone()){
-                        view.gamePanel.checkAnswer();
-                        if(!model.attemptsDone()){
-                            view.gamePanel.newLine();
-                        }else{
-                            System.out.println("Out of attempts!!");
+                    if(view.gamePanel.guessDone()) {
+                        if (view.gamePanel.checkAnswer()) {
+                            view.gameDone(true);
+                        } else {
+                            if (!model.attemptsDone()) {
+                                view.gamePanel.newLine();
+                            } else {
+                                view.gameDone(false);
+                            }
                         }
-                    }else{
-                        System.out.println("All fields are filled: "+view.gamePanel.guessDone());
                     }
+                    break;
+                case "Register":
+                    String username = view.endPanel.playerNameInput.getText();
+                    model.addPlayer(username,view.gamePanel.getAttemptsUsed());
                     break;
                 case "new":
                     view.startPanel.emptyPanel();
@@ -59,6 +63,9 @@ public class WordGuessController {
                         view.gamePanel.removeAll();
                     }
                     view.startGame();
+                    break;
+                case "ranking":
+                    System.out.println(model.listTopPlayers());
                     break;
                 case "exit":
                     System.exit(0);

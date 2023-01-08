@@ -1,5 +1,6 @@
 package Model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -9,20 +10,20 @@ public class WordModel {
     private ArrayList<Character> wordLetters;
     private int wordLength;
     private int nOfAttempts;
-    private ArrayList<String> topPlayersName;
-    private ArrayList<Integer> topPlayersNAttempts;
+    private int attemptsUsed = 0;
+    private ArrayList<Player> playerList;
 
     public void emptyAll(){
         word = "";
         wordLetters.clear();
         wordLength = 0;
+        attemptsUsed = 0;
     }
 
     public WordModel(){
-        topPlayersName = new ArrayList<>(); // Arrays.asList("a","b","c","d","e")
-        topPlayersNAttempts = new ArrayList<>(); // Arrays.asList(1,2,3,4,5)
+        playerList = new ArrayList<>(); // Arrays.asList("a","b","c","d","e")
         wordLetters = new ArrayList<>();
-        nOfAttempts = 2;
+        nOfAttempts = 8;
     }
 
     //Setters and getters methods
@@ -42,6 +43,10 @@ public class WordModel {
     public void setNOfAttempts(int nOfAttempts) { this.nOfAttempts = nOfAttempts;}
     public int getNOfAttempts() {return nOfAttempts;}
 
+    public void setAttemptsUsed(int attemptsUsed){
+        this.attemptsUsed = attemptsUsed;
+    }
+
     public boolean doesExist(char letter){
         return wordLetters.contains(letter);
     }
@@ -50,23 +55,60 @@ public class WordModel {
         return wordLetters.get(index) == letter;
     }
 
-    public int checkRanking(int nOfAttempts){
-        int index = 10;
-        for (int i=0; i <= topPlayersName.size(); i++){
-            if (nOfAttempts < topPlayersNAttempts.get(i)){
-                index = i;
-                break;
-            }
-        }
-        return index;
-    }
-
-    public void addPlayer(String playerName, int nOfAttempts){
-        topPlayersName.add(playerName);
-        topPlayersNAttempts.add(nOfAttempts);
-    }
-
     public boolean attemptsDone(){
         return nOfAttempts == 0;
+    }
+
+    public void addPlayer(String playerName, int attemptsUsed){
+        Player player = new Player(playerName,attemptsUsed);
+        if (playerList.size() == 0){
+            playerList.add(player);
+        }else{
+            int index = player.checkRanking(attemptsUsed);
+            if(index == 1000){
+                playerList.add(player);
+            }else{
+                playerList.add(index, player);
+            }
+        }
+    }
+
+    public String listTopPlayers(){
+        String text = null;
+        int max;
+        if(playerList.size() > 10){
+            max = 10;
+        }else{
+            max = playerList.size();
+        }
+        for (int i = 0; i < max; i++) {
+            text += "Player: " + playerList.get(i).getPlayerName()+" Attempts Used: " +playerList.get(i).getAttemptsUsed();
+        }
+        return text;
+    }
+
+    public class Player{
+        private final String playerName;
+        private final int attemptsUsed;
+
+        public int getAttemptsUsed(){return attemptsUsed;}
+
+        public String getPlayerName(){return playerName;}
+
+        public int checkRanking(int nOfAttempts){
+            int index = 1000;
+            for (int i=0; i < playerList.size(); i++){
+                if (attemptsUsed < playerList.get(i).getAttemptsUsed()){
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+
+        public Player(String name, int attemptsUsed){
+            this.playerName = name;
+            this.attemptsUsed = attemptsUsed;
+        }
     }
 }

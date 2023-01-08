@@ -15,6 +15,7 @@ public class WordGuessMenu extends JMenuBar {
         exit = new JMenuItem("Exit");
 
         newGame.setActionCommand("new");
+        ranking.setActionCommand("ranking");
         exit.setActionCommand("exit");
 
         wordGuess.add(newGame);

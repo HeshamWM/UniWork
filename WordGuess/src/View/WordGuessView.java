@@ -10,6 +10,7 @@ public class WordGuessView extends JFrame {
     WordModel model;
     public StartPanel startPanel;
     public GamePanel gamePanel;
+    public EndPanel endPanel;
     WordGuessMenu menu;
     private ActionListener actionListener;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -44,6 +45,16 @@ public class WordGuessView extends JFrame {
         revalidate();
         repaint();
         gamePanel.check.addActionListener(actionListener);
+    }
+
+    public void gameDone(boolean gameWon){
+        gamePanel.removeAll();
+        endPanel = new EndPanel(gameWon);
+        setContentPane(endPanel);
+        setTitle("Game Over");
+        revalidate();
+        repaint();
+        if(gameWon){endPanel.register.addActionListener(actionListener);}
     }
 
     public void setActionListener(ActionListener actionListener) {

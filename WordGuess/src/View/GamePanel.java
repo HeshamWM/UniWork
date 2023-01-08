@@ -14,6 +14,10 @@ public class GamePanel extends JPanel {
     public JButton check;
     JPanel main;
     private boolean gameWon = false;
+    private int attemptsUsed = 0;
+    private ActionListener actionListener;
+
+    public int getAttemptsUsed(){return attemptsUsed;}
 
     public GamePanel(WordModel model){
         this.model = model;
@@ -31,9 +35,9 @@ public class GamePanel extends JPanel {
     }
 
     public void newLine(){
+        attemptsUsed +=1;
         model.setNOfAttempts(model.getNOfAttempts() - 1);
         squares.clear();
-        System.out.println("newLine(): new line created");
         JPanel linePanel = new JPanel();
         for (int i = 0; i < model.getWordLength(); i++) {
             Square square = new Square();
@@ -45,7 +49,7 @@ public class GamePanel extends JPanel {
         repaint();
     }
 
-    public void checkAnswer(){
+    public boolean checkAnswer(){
         int nOfCorrectLetters = 0;
         for (int i = 0; i < model.getWordLength(); i++) {
             char letterLower = squares.get(i).getText().toLowerCase().charAt(0);
@@ -63,9 +67,7 @@ public class GamePanel extends JPanel {
                 squares.get(i).setWrong();
             }
         }
-        if (nOfCorrectLetters == model.getWordLength()){
-            GameWon();
-        }
+        return nOfCorrectLetters == model.getWordLength();
     }
 
     public boolean guessDone(){
@@ -82,16 +84,8 @@ public class GamePanel extends JPanel {
         return gameWon;
     }
 
-    public void GameWon(){
-        this.gameWon = true;
-        removeAll();
-        JLabel congrats = new JLabel("Congratulations!!! You Have Won");
-        add(congrats);
-        revalidate();
-        repaint();
-    }
-
     public void setActionListener(ActionListener actionListener) {
+        this.actionListener = actionListener;
         check.addActionListener(actionListener);
     }
 }

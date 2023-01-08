@@ -32,7 +32,7 @@ public class StartPanel extends JPanel {
         JLabel attemptsLabel = new JLabel("Please enter number of attempts: ");
         wordInput = new JTextField(6);
 
-        final String[] numbers1 = {"3","4","5"};
+        final String[] numbers1 = {"3","4","5","6","7"};
         final String[] numbers2 = {"4","5","6","7","8"};
         wordLength = new JComboBox<String>(numbers1);
         nOfAttemptsInput = new JComboBox<String>(numbers2);
@@ -52,7 +52,6 @@ public class StartPanel extends JPanel {
         panel1.setBorder(space);
         panel2.setBorder(space);
         panel3.setBorder(space);
-        //start.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
 
         panel1.add(wordLabel); panel1.add(wordInput);
         panel2.add(wordLengthLabel); panel2.add(wordLength);
